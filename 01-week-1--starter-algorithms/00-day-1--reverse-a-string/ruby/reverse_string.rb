@@ -1,12 +1,18 @@
 def reverse_string(str)
   # type your code in here
+  reversed = ""
+
+  str.chars.each do |c|
+    reversed = c + reversed
+  end
+
+  reversed
+
 end
 
 if __FILE__ == $PROGRAM_NAME
   puts "Expecting: 'ih'"
   puts "=>", reverse_string('hi')
-
-  puts
 
   puts "Expecting: 'ybabtac'"
   puts "=>", reverse_string('catbaby')
