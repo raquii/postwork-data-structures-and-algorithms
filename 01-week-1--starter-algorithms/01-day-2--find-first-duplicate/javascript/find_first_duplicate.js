@@ -1,5 +1,20 @@
+//given an array, find the first duplicate and return its value. If no duplicate is found, return -1
+
 function findFirstDuplicate(arr) {
-  // type your code here
+  // use a set to track the seen values
+  let hash = new Set();
+
+  for (let i = 0; i < arr.length; i++) {
+    //if we have seen the current value, return it
+    if (hash.has(arr[i])) {
+      return arr[i];
+    }
+    //otherwise, add it to the set
+    hash.add(arr[i]);
+  }
+
+  //if we never return a value in the loop, return -1
+  return -1;
 }
 
 if (require.main === module) {
