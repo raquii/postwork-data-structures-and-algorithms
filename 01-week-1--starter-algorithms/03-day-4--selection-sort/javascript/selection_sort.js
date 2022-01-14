@@ -1,5 +1,16 @@
 function selectionSort(arr) {
   // type your code here
+  const solve = [];
+
+  while (arr.length) {
+    let small = Math.min(...arr);
+    solve.push(small);
+
+    let i = arr.indexOf(small);
+    arr.splice(i, 1);
+  }
+
+  return solve;
 }
 
 if (require.main === module) {
@@ -15,6 +26,17 @@ if (require.main === module) {
   for (let i = 0; i < 100; ++i) {
     longInput.push(Math.random());
   }
+
+  const startTime = Date.now();
+
+  for (let i = 0; i < 1000; i++) {
+    selectionSort([2, 4, -1, 3, 0]);
+    selectionSort(longInput);
+  }
+
+  const avgRuntime = (Date.now() - startTime) / 2000;
+
+  console.log("Average Runtime =>", avgRuntime);
 }
 
 module.exports = selectionSort;
